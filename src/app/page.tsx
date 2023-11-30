@@ -1,95 +1,66 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client'
+import React from 'react';
+import * as Form from '@radix-ui/react-form';
+import './page.css';
+import { Button } from '../components/ui/button';
 
-export default function Home() {
+
+function SignIn() {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+    });
+  };
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <div className='parent'>
+      <Form.Root className="FormRoot">
+        <Form.Field className="FormField" name="email">
+          <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+            <Form.Label className="FormLabel">Email</Form.Label>
+            <Form.Message className="FormMessage" match="valueMissing">
+              Please enter your email
+            </Form.Message>
+            <Form.Message className="FormMessage" match="typeMismatch">
+              Please provide a valid email
+            </Form.Message>
+          </div>
+          <Form.Control asChild>
+            <input className="Input" type="email" required />
+          </Form.Control>
+        </Form.Field>
+        <Form.Field className="FormField" name="password">
+          <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+            <Form.Label className="FormLabel">Password</Form.Label>
+            <Form.Message className="FormMessage" match="valueMissing">
+              Please enter your password
+            </Form.Message>
+            <Form.Message className="FormMessage" match="typeMismatch">
+              Please provide a valid password
+            </Form.Message>
+          </div>
+          <Form.Control asChild>
+            <input className="Input" type="password" required />
+          </Form.Control>
+        </Form.Field>
+        <Form.Submit asChild>
+          <button type="submit" className="Button" style={{ marginTop: 10 }}>
+            Login
+          </button>
+        </Form.Submit>
+        <hr />
+        <Button className="Button" variant="secondary" size="lg" style={{ marginTop: 10 }}>
+          Forgot Password?
+        </Button>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      </Form.Root>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+    </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+  );
 }
+
+export default SignIn;

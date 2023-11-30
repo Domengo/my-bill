@@ -1,0 +1,41 @@
+// a header component that has navbar which includes links to pages a profile icon
+// using material ui icons
+//
+//
+import React from 'react';
+import './header.css';
+import { Link } from 'react-router-dom';
+import { Button } from '@material-ui/core';
+import { Avatar } from '@material-ui/core';
+
+function Header() {
+  return (
+    <div className='header'>
+      <div className='header__left'>
+        <Link to='/'>
+          <img
+            className='header__logo'
+            src='https://www.freepnglogos.com/uploads/netflix-logo-0.png'
+            alt=''
+          />
+        </Link>
+        <Link to='/'>
+          <h3>Home</h3>
+        </Link>
+        <Link to='/profile'>
+          <h3>Profile</h3>
+        </Link>
+      </div>
+      <div className='header__right'>
+        <Avatar
+          alt='Remy Sharp'
+          src='https://i.pinimg.com/originals/2b/6a/6a/2b6a6a3e3e6f3e8a6f5b6c7f7b8c4a8f.jpg'
+        />
+        <Button variant='contained' color='secondary'>
+          Logout
+        </Button>
+      </div>
+    </div>
+  );
+}
+export default Header;

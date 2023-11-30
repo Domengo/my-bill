@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { fetchBillData } from '../api.ts';
 
-const Table: React.FC = () => {
+export const Table: React.FC = () => {
     const [data, setData] = useState([]); // State to store the fetched data
     const router = useRouter();
 

@@ -1,5 +1,13 @@
 // connect to postgres database
-import pool form './db'
+const { Pool } = require('pg');
+// require('dotenv').config();
+
+const connectionString = 'postgres://dom:2252@localhost:5432/my_bill';
+
+// Create a PostgreSQL connection pool
+const pool = new Pool({
+    connectionString: connectionString,
+});
 
 // const pool = new Pool({
 //     user: process.env.DB_USER,

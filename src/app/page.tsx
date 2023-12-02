@@ -38,7 +38,7 @@ function SignIn() {
             <Form.Message className="FormMessage" match="valueMissing">
               Please enter your password
             </Form.Message>
-            <Form.Message className="FormMessage" match="typeMismatch">
+            <Form.Message className="FormMessage text-red-500" match="typeMismatch">
               Please provide a valid password
             </Form.Message>
           </div>
@@ -47,7 +47,7 @@ function SignIn() {
           </Form.Control>
         </Form.Field>
         <Form.Submit asChild>
-          <button type="submit" className="Button" style={{ marginTop: 10 }}>
+          <button type="submit" onSubmit={handleSubmit} className="Button" style={{ marginTop: 10 }}>
             Login
           </button>
         </Form.Submit>

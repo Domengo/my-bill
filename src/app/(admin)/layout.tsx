@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Suspense } from 'react';
+import Nav from './dashboard/nav';
 
 export const metadata: Metadata = {
     title: 'Admin'
@@ -12,16 +13,17 @@ export default function DashboardLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en" className="h-full bg-gray-400">
+        <html lang="en" className="h-full bg-gray-100">
             <body className="h-full p-6">
                 <section>
-                    {/* Include shared UI here e.g. a header or sidebar */}
-                    <nav></nav>
+                    <Suspense>
+                        <Nav />
+                    </Suspense>
 
                     {children}
                 </section>
             </body>
         </html>
-        
+
     )
 }

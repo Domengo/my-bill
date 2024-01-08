@@ -1,5 +1,5 @@
-import { signIn } from '@/auth';
-import { AuthError } from 'next-auth';
+import { signIn } from '@authentication/auth';
+import AuthError from 'next-auth';
  
 // ...
  

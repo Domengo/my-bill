@@ -20,15 +20,15 @@ function hash(password) {
 }
 
 
-async function getUser(email: string): Promise<User | undefined> { 
-    try { 
+async function getUser(email: string): Promise<User | undefined> {
+    try {
         const user = await prisma.users.findUnique({
             where: {
                 email: email,
             },
         });
         return user;
-    } catch (error) { 
+    } catch (error) {
         console.error('Failed to fetch user: ', error);
         // throw new Error('Error getting user');
     }
@@ -45,7 +45,7 @@ export const { auth, signIn, signOut } = NextAuth({
     ...authConfig,
     providers: [
         Credentials({
-            async authorize(credentials: { email: string, password: string }) { 
+            async authorize(credentials) {
                 const parsedCredentials = z.object({
                     email: z.string().email(),
                     password: z.string().min(6),
@@ -54,18 +54,17 @@ export const { auth, signIn, signOut } = NextAuth({
                 if (parsedCredentials.success) {
                     const { email, password } = parsedCredentials.data;
                     const user = await getUser(email);
-                    console.log(user);
+                    // console.log(user);
                     if (!user) return null;
                     const isValidPassword = await bcrypt.compareSync(password, user.password);
-
-                    if (isValidPassword) { 
+                    console.log(isValidPassword);
+                    if (isValidPassword) {
+                        console.log(user)
                         return user;
                     }
-                } else {
-                    console.log('Invalid password');
-                    return null;
                 }
-                
+                console.log('Invalid password');
+                return null;
             },
         }),
     ],

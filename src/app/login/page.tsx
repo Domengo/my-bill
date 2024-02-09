@@ -16,7 +16,7 @@ export default function LoginForm() {
     return (
         <div className="w-full min-h-screen flex md-col-1 justify-center items-center align-content-center rounded-3 border-3 bg-gradient-to-r from-cyan-100 to-cyan-300">
             <form action={dispatch} className="space-y-3">
-                <div className="flex-1 rounded-lg bg-gradient-to-r from-cyan-300 to-cyan-100 px-6 pb-4 pt-8">
+                <div className="flex-1 rounded-lg bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-100 px-6 pb-4 pt-8">
                     <h1 className={`${lusitana.className} mb-3 text-2xl`}>
                         Please log in to continue.
                     </h1>

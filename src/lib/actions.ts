@@ -1,6 +1,7 @@
 "use server";
 import { signIn } from '@authentication/auth';
 import AuthError from 'next-auth';
+// import { redirect } from 'next/navigation';
  
 // ...
  
@@ -9,7 +10,10 @@ export async function authenticate(
   formData: FormData,
 ) {
   try {
-    let user =await signIn('credentials', formData);
+    await signIn('credentials', formData);
+    // if (!user) {
+    //   redirect('/login');
+    // }
   } catch (error) {
     console.log(typeof error, error)
     if (error instanceof AuthError) {
@@ -22,7 +26,5 @@ export async function authenticate(
     }
     throw error;
   }
-  if (!user) {
-    redirect('/login');
-  }
+
 }

@@ -4,6 +4,8 @@ import Credentials from 'next-auth/providers/credentials';
 import { z } from 'zod';
 import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcryptjs';
+import { redirect } from 'next/navigation';
+
 
 export type User = {
     id: string;
@@ -55,7 +57,10 @@ export const { auth, signIn, signOut } = NextAuth({
                     const { email, password } = parsedCredentials.data;
                     const user = await getUser(email);
                     // console.log(user);
-                    if (!user) return null;
+                    if (!user) {
+                        redirect('/login');
+                        return null
+                    };
                     const isValidPassword = await bcrypt.compareSync(password, user.password);
                     console.log(isValidPassword);
                     if (isValidPassword) {

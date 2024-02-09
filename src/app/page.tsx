@@ -47,7 +47,7 @@ export default function LandingPage() {
                   </button>
                 
                 <a
-                  href="https://overmind.xyz/quests/pay-me-a-river-remastered"
+                  href=""
                   target="_blank"
                 >
                   <button className="bg-neutral-300 text-white font-medium hover:bg-neutral-200 font-matter space-x-2 px-4 text-base">

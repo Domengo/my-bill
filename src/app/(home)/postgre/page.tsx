@@ -21,7 +21,7 @@ export default async function Cart({
 
     return (
         <div className="m-4 p-4 bg-cyan-300 rounded-3">
-            <div classname="column-2 gap-8" >
+            <div className="column-2 gap-8" >
                 <div>
                     {rows.map((row) => (
                         <div key={row.id}>

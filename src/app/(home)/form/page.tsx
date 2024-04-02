@@ -300,7 +300,7 @@ export default function Form() {
             </div>
           </div>
         </div>
-        <Button variant="success" size="lg">Submit</Button>
+        <Button variant="success" size="lg" type="submit">Submit</Button>
       </form>
     </>
   );

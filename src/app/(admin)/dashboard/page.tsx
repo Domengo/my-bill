@@ -47,6 +47,7 @@ export default async function IndexPage({
             <Title>Users</Title>
             <Text>A list of users retrieved from a Postgres database.</Text>
             {/* <Search /> */}
+            
             <Card className="mt-6">
                 <UsersTable users={users} />
             </Card>

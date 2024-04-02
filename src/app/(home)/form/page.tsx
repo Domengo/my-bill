@@ -133,7 +133,7 @@ export default function Form() {
     }
   }
   function handleSubmit() {
-    console.log(`initial units ${initialUnit} | initial litres ${initialLitres}, units pumped ${parseFloat(unitsPumped)} | litres pumped ${litresPumped}`)
+    alert(`initial units ${initialUnit} | initial litres ${initialLitres}, units pumped ${parseFloat(unitsPumped)} | litres pumped ${litresPumped}`)
   }
   // console.log(total);
   return (
@@ -152,7 +152,7 @@ export default function Form() {
               <input
                 className="p-2 w-full border focus:outline-none focus:decoration-0 focus-visible:ring-2 focus:ring ring-cyan-400 rounded text-emphasis "
                 placeholder="Enter initial unit reading"
-                type="number"
+                type="float"
                 onChange={handleInitialChange}
               />
             </div>

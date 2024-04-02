@@ -29,13 +29,13 @@ export default async function IndexPage({
 
     const users: User[] = [
         {
-            id: "1",
+            id: 1,
             name: "John Doe",
             username: "johndoe",
             email: "johndoe@gmail.com",
         },
         {
-            id: "2",
+            id: 2,
             name: "Jane Doe",
             username: "janedoe",
             email: "janedoe@email.com",

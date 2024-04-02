@@ -30,6 +30,7 @@
       "@authentication/*":["./*"],
       "@app/*":["./src/app*"],
       "@lib/*":["./src/lib/*"],
+      // "@components/*":["./src/app/components/*"]
     }
   },
   "include": [

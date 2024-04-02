@@ -4,17 +4,11 @@
 import Link, { useRouter } from "next/navigation";
 import Image from 'next/image';
 
-// export const metadata: Metadata = {
-    
-//       title: "Real-Time Payments",
-//       description:
-//         "Send and receive payments in real-time, without the need for a middleman.",
-//     };
 export default function LandingPage() {
   const router = useRouter();
 
   function goto() {
-    router.push("/login");
+    router.push("./login");
     }   
 
   return (

@@ -9,7 +9,9 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
-// import * as Logo from '@/app/logo.svg';
+import Link from "next/link";
+
+// import * as Logo from '@/app/icon.svg';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -39,23 +41,24 @@ export default function Navbar({ user }: { user: any }) {
             <div className="flex h-16 justify-between">
               <div className="flex">
                 <div className="flex flex-shrink-0 items-center">
-                  {/* <Logo width="32" height="32" className="text-gray-100"/> */}
+                  {/* <Logo width="32" height="32" className="text-gray-100"/>
                   
-                  {/* <link
+                  <link
                     rel="icon"
                     href="/icon?<generated>"
                     type="image/<generated>"
                     sizes="<generated>"
-                  /> */}
+                  />  */}
+                  logo
                 </div>
               </div>
-              <div className="grid gap-2 hidden sm:ml-6 sm:flex sm:items-center">
-                <button className="p-2 bg-green-400 hover:bg-green-500 font-medium rounded-lg ">
+              <div className="hidden sm:ml-6 sm:flex sm:items-center">
+                {/* <button className="p-2 bg-green-400 hover:bg-green-500 font-medium rounded-lg ">
                   Sign Up
-                </button>
-                <button className="p-2 bg-blue-400 hover:bg-blue-500 font-medium rounded-lg ">
+                </button> */}
+                <Link href='./login' className="p-2 bg-blue-400 hover:bg-blue-500 font-medium rounded-lg ">
                   Log In
-                </button>
+                </Link>
                 {/* add link to the button above */}
 
               </div>

@@ -20,7 +20,7 @@ export default async function Cart({
     const { rows } = await sql<User>`SELECT * FROM users WHERE email=${email}`;
 
     return (
-        <div className="m-4 p-4 bg-cyan-500 rounded-3">
+        <div className="m-4 p-4 bg-cyan-300 rounded-3">
             <div classname="column-2 gap-8" >
                 <div>
                     {rows.map((row) => (
